@@ -154,6 +154,8 @@ ALvoid MixSource(ALsource *Source, ALCdevice *Device, ALuint SamplesToDo)
          * this is the last update. */
         if(DstBufferSize > 4 && OutPos+DstBufferSize < SamplesToDo)
             DstBufferSize &= ~3;
+        else if(OutPos & 3) /* misaligned because of previous short DstBufferSize<4 */
+            DstBufferSize = 4 - (OutPos & 3);
 
         for(chan = 0;chan < NumChannels;chan++)
         {

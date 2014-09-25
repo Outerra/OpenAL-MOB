@@ -177,9 +177,10 @@ void MixDirect_SSE(const DirectParams *params, const ALfloat *RESTRICT data, ALu
         if(OutPos == 0)
             ClickRemoval[c] -= data[0]*DrySend;
 
-        if(BufferSize >=4) {
+        pos = 0;
+        if(BufferSize >= 4) {
             gain = _mm_set1_ps(DrySend);
-            for(pos = 0;pos < BufferSize-3;pos += 4)
+            for(;pos < BufferSize-3;pos += 4)
             {
                 const __m128 val4 = _mm_load_ps(&data[pos]);
                 __m128 dry4 = _mm_load_ps(&DryBuffer[c][OutPos+pos]);
