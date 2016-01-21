@@ -42,7 +42,7 @@ typedef unsigned __int64 uint64_t;
 #include "alc.h"
 #include "al.h"
 
-#if defined(HAVE_DSOUND)
+#if defined(HAVE_DSOUND) || defined(WIN32)
 #include <windows.h>
 #endif // defined(HAVE_DSOUND)
 

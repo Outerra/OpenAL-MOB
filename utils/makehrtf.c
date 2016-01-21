@@ -59,7 +59,7 @@
  */
 
 /* Needed for 64-bit unsigned integer. */
-#include "config.h"
+#include "config-oal.h"
 
 #include <stdio.h>
 #include <stdlib.h>
