@@ -139,3 +139,6 @@
 
 /* Define if we have pthread_setschedparam() */
 /* #undef HAVE_PTHREAD_SETSCHEDPARAM */
+
+#define strcasecmp _stricmp
+#define strncasecmp _strnicmp

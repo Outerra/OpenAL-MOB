@@ -22,11 +22,11 @@
 
 #include "config-oal.h"
 
-#include <math.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <assert.h>
+#include <math.h>
 
 #include "alMain.h"
 #include "alSource.h"
@@ -769,8 +769,13 @@ ALvoid CalcSourceParams(ALsource *ALSource, const ALCcontext *ALContext)
         VSS = aluDotproduct(Velocity, SourceToListener) * DopplerFactor;
         VLS = aluDotproduct(ListenerVel, SourceToListener) * DopplerFactor;
 
-        Pitch *= clampf(SpeedOfSound-VLS, 1.0f, SpeedOfSound*2.0f - 1.0f) /
-                 clampf(SpeedOfSound-VSS, 1.0f, SpeedOfSound*2.0f - 1.0f);
+        //max doppler multiplier
+        const ALfloat MaxDoppler = 20;
+
+        ALfloat doppler = clampf(SpeedOfSound-VLS, 1.0f, SpeedOfSound*2.0f - 1.0f) /
+            clampf(SpeedOfSound-VSS, 1.0f, SpeedOfSound*2.0f - 1.0f);
+
+        Pitch *= minf(doppler, MaxDoppler);
     }
 
     BufferListItem = ALSource->queue;
