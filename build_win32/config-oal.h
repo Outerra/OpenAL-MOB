@@ -135,7 +135,9 @@
 #define HAVE__CONTROLFP
 
 /* Define if we have __control87_2() */
+#ifndef _WIN64
 #define HAVE___CONTROL87_2
+#endif
 
 /* Define if we have pthread_setschedparam() */
 /* #undef HAVE_PTHREAD_SETSCHEDPARAM */
