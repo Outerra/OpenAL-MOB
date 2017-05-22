@@ -31,6 +31,7 @@
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
     <ProjectName>OpenAL-MOB</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -100,6 +101,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(VCInstallDir)PlatformSDK\include;$(IncludePath);$(ProjectDir);..\include;..\OpenAL32\Include;..\mob\Include</IncludePath>
     <TargetName>openal-mob</TargetName>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(VCInstallDir)PlatformSDK\include;$(IncludePath);$(ProjectDir);..\include;..\OpenAL32\Include;..\mob\Include</IncludePath>
@@ -108,6 +111,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(VCInstallDir)PlatformSDK\include;$(IncludePath);$(ProjectDir);..\include;..\OpenAL32\Include;..\mob\Include</IncludePath>
     <TargetName>openal-mob</TargetName>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(VCInstallDir)PlatformSDK\include;$(IncludePath);$(ProjectDir);..\include;..\OpenAL32\Include;..\mob\Include</IncludePath>
