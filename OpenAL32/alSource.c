@@ -417,7 +417,7 @@ static ALenum SetSourcefv(ALsource *Source, ALCcontext *Context, SrcFloatProp pr
             return AL_NO_ERROR;
 
         case AL_MAX_GAIN:
-            CHECKVAL(*values >= 0.0f && *values <= 1.0f);
+            CHECKVAL(*values >= 0.0f);
 
             Source->MaxGain = *values;
             Source->NeedsUpdate = AL_TRUE;
